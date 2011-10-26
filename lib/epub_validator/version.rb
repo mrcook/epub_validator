@@ -1,3 +1,3 @@
-module Epubvalidator
+module EpubValidator
   VERSION = "0.0.1"
 end
