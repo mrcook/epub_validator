@@ -5,10 +5,10 @@ require 'epub_validator/version'
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
 
-  s.name        = "epubValidator"
-  s.version     = epub_validator::VERSION
+  s.name        = "epub_validator"
+  s.version     = EpubValidator::VERSION
   s.summary     = %q{Run epubcheck.jar on single/multiple EPUB files.}
-  s.description = %q{epubValidator allows you to check your EPUB files for errors using the epubcheck Java file. You can check just one file, or a directory full of EPUB files and output any errors to a log file.}
+  s.description = %q{EPUB Validator allows you to check your EPUB files for errors using the epubcheck Java file. You can check just one file at a time for now - eventually directories full of EPUB files and then output any errors to a log file.}
 
   s.authors     = ["Mike Cook"]
   s.email       = ["m@mikecook.co.uk"]
