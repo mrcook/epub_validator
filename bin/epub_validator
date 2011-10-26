@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'epub_validator'
+EpubValidator.process_file(ARGV[0])
