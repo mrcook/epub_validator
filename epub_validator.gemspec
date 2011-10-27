@@ -28,5 +28,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rspec"
   s.add_dependency "ZenTest"
-  #s.add_dependency "autotest-growl"
+  s.add_dependency "autotest-growl"
 end
