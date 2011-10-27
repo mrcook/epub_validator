@@ -1,22 +1,21 @@
 class EpubValidator::CheckEpub
+  attr_accessor :validation_message
+
   def initialize(filename)
     @filename = filename
+
+    @epubcheck_output = process_epub(@filename)
+    @validation_message = format_epubcheck_message(@epubcheck_output)
   end
 
-  def validate_epub_file
+  def process_epub(filename)
     epubcheck_jar = 'lib/epubcheck-1.2/epubcheck-1.2.jar'
-    message = `java -jar #{epubcheck_jar} "#{@filename}" 2>&1`
-
-    if message.match('No errors or warnings detected')
-      'Passed.'
-    else
-      format_failed_validation_message(message)
-    end
+    `java -jar #{epubcheck_jar} "#{filename}" 2>&1`
   end
 
-  private
+  def format_epubcheck_message(message)
+    return "Passed." if message.match('No errors or warnings detected')
 
-  def format_failed_validation_message(message)
     m_array = message.split(/\n/)
 
     # clean up all useless info
