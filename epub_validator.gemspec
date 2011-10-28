@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
   #s.add_runtime_dependency "rest-client"
 
   s.add_dependency "rspec"
+  s.add_dependency "rspec-mocks"
   s.add_dependency "ZenTest"
   s.add_dependency "autotest-growl"
 end
