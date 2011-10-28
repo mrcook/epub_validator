@@ -1,9 +1,9 @@
 class EpubValidator::CheckEpub
-  attr_accessor :output
+  attr_accessor :message
 
   def initialize(filename)
     @filename = filename
-    @output = format_epubcheck_message(process_epub)
+    @message = format_epubcheck_message(process_epub)
   end
 
   def process_epub
