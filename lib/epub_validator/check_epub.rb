@@ -1,16 +1,14 @@
 class EpubValidator::CheckEpub
-  attr_accessor :validation_message
+  attr_accessor :output
 
   def initialize(filename)
     @filename = filename
-
-    @epubcheck_output = process_epub(@filename)
-    @validation_message = format_epubcheck_message(@epubcheck_output)
+    @output = format_epubcheck_message(process_epub)
   end
 
-  def process_epub(filename)
+  def process_epub
     epubcheck_jar = 'lib/epubcheck-1.2/epubcheck-1.2.jar'
-    `java -jar #{epubcheck_jar} "#{filename}" 2>&1`
+    epubcheck = `java -jar #{epubcheck_jar} "#{@filename}" 2>&1`
   end
 
   def format_epubcheck_message(message)
