@@ -14,7 +14,7 @@ class EpubValidator::CheckEpub
   end
 
   def format_epubcheck_message(message)
-    return "Passed." if message.match('No errors or warnings detected')
+    return ['Passed.'] if message.match('No errors or warnings detected')
 
     m_array = message.split(/\n/)
 
