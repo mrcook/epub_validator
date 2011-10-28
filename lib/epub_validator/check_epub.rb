@@ -8,7 +8,7 @@ module EpubValidator
     end
 
     def process_epub
-      epubcheck_jar = 'lib/epubcheck-1.2/epubcheck-1.2.jar'
+      epubcheck_jar = File.expand_path(File.dirname(__FILE__) + '/../epubcheck-1-2/epubcheck-1.2.jar')
       epubcheck = `java -jar #{epubcheck_jar} "#{@filename}" 2>&1`
     end
 
