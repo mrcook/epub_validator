@@ -7,12 +7,12 @@ Gem::Specification.new do |s|
 
   s.name        = "epub_validator"
   s.version     = EpubValidator::VERSION
-  s.summary     = %q{Run epubcheck.jar on single/multiple EPUB files.}
-  s.description = %q{EPUB Validator allows you to check your EPUB files for errors using the epubcheck Java file. You can check just one file at a time for now - eventually directories full of EPUB files and then output any errors to a log file.}
+  s.summary     = %q{Check that your EPUB book is a valid IDPF document.}
+  s.description = %q{EPUB Validator lets you check that your EPUB 2 files are valid IDPF documents with the help of the epubcheck tool.}
 
   s.authors     = ["Mike Cook"]
   s.email       = ["m@mikecook.co.uk"]
-  s.homepage    = "http://mikecook.co.uk"
+  s.homepage    = "https://github.com/mrcook/"
 
   s.required_ruby_version     = ">= 1.9.2"
   s.required_rubygems_version = ">= 1.3.6"
