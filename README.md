@@ -1,8 +1,9 @@
-# epubValidator - Check your EPUB's
+# epubValidator - Check your EPUB Books
 
-This library will validate your EPUB files against epubcheck 1.2 and return a successful or error message. It can be called as a Ruby library, or invoked from the command line.
+This library will check that your EPUB v2 files are valid IDPF documents (using epubcheck-1.2.jar) and return a successful or error message. It can be called as a Ruby library, or invoked from the command line.
 
-For more about epubcheck see http://code.google.com/p/epubcheck/
+For more about the IDPF see http://idpf.org
+For more about the epubcheck tool see http://code.google.com/p/epubcheck/
 
 
 ## Setup
