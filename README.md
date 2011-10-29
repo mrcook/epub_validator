@@ -3,6 +3,7 @@
 This library will check that your EPUB v2 files are valid IDPF documents (using epubcheck-1.2.jar) and return a successful or error message. It can be called as a Ruby library, or invoked from the command line.
 
 For more about the IDPF see http://idpf.org
+
 For more about the epubcheck tool see http://code.google.com/p/epubcheck/
 
 
