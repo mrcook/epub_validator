@@ -20,21 +20,21 @@ Sample usage and output for a missing EPUB file:
 ``` ruby
 require 'epub_validator'
 
-ev = EpubValidator.check_file('/path/to/missing.epub')
+ev = EpubValidator.run('/path/to/sample.epub')
 ev.message.each do |m|
   puts m
 end
 => # FAILED!
-=> # ERROR: /path/to/missing.epub: I/O error: path/to/missing.epub (No such file or directory)
+=> # ERROR: OPS/toc.ncx(21): 'OPS/': referenced resource exists, but not declared in the OPF file
 ```
 
 Now from the command line:
 
 ``` terminal
-$ epub_validator /path/to/missing.epub
+$ bin/epub_validator /path/to/sample.epub
 Checking....
 FAILED!
-ERROR: /path/to/missing.epub: I/O error: /path/to/missing.epub (No such file or directory)
+ERROR: OPS/toc.ncx(21): 'OPS/': referenced resource exists, but not declared in the OPF file
 ```
 
 
@@ -44,6 +44,6 @@ Java must be installed and set in your PATH.
 
 ## Future Features
 
-* Accept directory containing many .epub files for processing.
-* Write results to log file.
-* Format "error" output for more intuitive instructions.
+* Accept a directory containing many .epub files for processing.
+* When using the command line, have option to write results to a log file
+* Format "ERROR" and "WARNING" output for more intuitive instructions.
