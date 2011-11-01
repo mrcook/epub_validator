@@ -2,32 +2,30 @@ require 'spec_helper'
 
 module EpubValidator
   describe EpubCheck do
-    context "when initialized" do
-      it "will return an instance of EpubCheck" do
-        EpubCheck.new('test.epub').should be_kind_of(EpubCheck)
-      end
-    end
     context "when it tries to process a missing file" do
-      it "should return missing file error message" do
-        failed_message = 'FAILED!\n\nNo .epub file to check was specified in arguments!\n\nThe tool will EXIT!'
-        ce = EpubCheck.new('test.epub')
-        EpubCheck.any_instance.stub(:process_epub).and_return(failed_message)
-        ce.process_epub.should eq(failed_message)
+      it "should return a formatted I/O error message" do
+        message = "ERROR: test.epub: I/O error: test.epub (No such file or directory)"
+        formatted_message = ["FAILED!", "ERROR: test.epub: I/O error: test.epub (No such file or directory)"]
+        EpubCheck.stub(:epubcheck).and_return(message)
+        ec = EpubCheck.process("test.epub")
+        ec.should eq(formatted_message)
       end
     end
     context "when it processes a valid file" do
       it "should return 'Passed.' message as an array" do
-        success_message = "Epubcheck Version 1.2\n\nNo errors or warnings detected\n"
-        ce = EpubCheck.new('test.epub')
-        ce.format_epubcheck_message(success_message).should eq(['Passed.'])
+        message = "Epubcheck Version 1.2\n\nNo errors or warnings detected\n"
+        EpubCheck.stub(:epubcheck).and_return(message)
+        ec = EpubCheck.process("test.epub")
+        ec.should eq(['Passed.'])
       end
     end
     context "when it processes an invalid file" do
       it "should return error message as an array" do
-        failed_message = "Epubcheck Version 1.2\n\nERROR: book.epub: resource OEBPS/stylesheets/handbookish.css is missing\n\nCheck finished with warnings or errors!"
-        formatted_failed_message = ["FAILED!", "ERROR: book.epub: resource OEBPS/stylesheets/handbookish.css is missing"]
-        ce = EpubCheck.new('test.epub')
-        ce.format_epubcheck_message(failed_message).should eq(formatted_failed_message)
+        message = "Epubcheck Version 1.2\n\nERROR: book.epub: resource OEBPS/stylesheets/handbookish.css is missing\n\nCheck finished with warnings or errors!"
+        formatted_message = ["FAILED!", "ERROR: book.epub: resource OEBPS/stylesheets/handbookish.css is missing"]
+        EpubCheck.stub(:epubcheck).and_return(message)
+        ec = EpubCheck.process("test.epub")
+        ec.should eq(formatted_message)
       end
     end
   end
