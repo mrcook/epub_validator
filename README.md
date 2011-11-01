@@ -15,7 +15,7 @@ gem install epub_validator
 
 ## Basic Usage
 
-Sample usage and output for a missing EPUB file:
+Sample usage and output:
 
 ``` ruby
 require 'epub_validator'
