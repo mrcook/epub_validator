@@ -4,7 +4,7 @@ require 'epub_validator/check_epub'
 
 module EpubValidator
   def self.check_file(filename)
-    CheckEpub.new(filename)
+    EpubCheck.new(filename)
   end
 end
 

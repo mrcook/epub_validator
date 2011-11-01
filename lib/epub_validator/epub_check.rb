@@ -1,5 +1,5 @@
 module EpubValidator
-  class CheckEpub
+  class EpubCheck
     attr_accessor :message
 
     def initialize(filename)
