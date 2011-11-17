@@ -1,10 +1,11 @@
 Dir["#{File.dirname(__FILE__)}/epub_validator/**/*"].each {|file| require(file)}
 
-require 'epub_validator/epub_check'
+require 'epub_validator/process_epub'
 
 module EpubValidator
   def self.check(filename)
-    EpubCheck.process(filename)
+    check = ProcessEpub.new
+    check.epubcheck(filename)
   end
 end
 
