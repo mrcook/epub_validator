@@ -20,7 +20,7 @@ Sample usage and output:
 ``` ruby
 require 'epub_validator'
 
-ev = EpubValidator.run('/path/to/sample.epub')
+ev = EpubValidator.check('/path/to/sample.epub')
 ev.message.each do |m|
   puts m
 end
