@@ -1,5 +1,5 @@
 module EpubValidator
-  class FormatErrorMessage
+  class FormatMessage
     def process_message(message)
       return ['Passed.'] if message.match('No errors or warnings detected')
 
