@@ -4,8 +4,10 @@ require 'epub_validator/process_epub'
 
 module EpubValidator
   def self.check(filename)
-    check = ProcessEpub.new
-    check.epubcheck(filename)
+    pe = ProcessEpub.new
+    message = pe.epubcheck(filename)
+    validation = FormatErrorMessage.new
+    validation.process_message(message)
   end
 end
 
