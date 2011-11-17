@@ -9,7 +9,7 @@ module EpubValidator
         ec.stub(:epubcheck).and_return(message)
         ec.epubcheck("test.epub").should eq(message)
       end
-      it "should return a formatted message" do
+      it "should return the output message formatted" do
         message = "Epubcheck Version 1.2\n\nERROR: book.epub: resource OEBPS/stylesheets/handbookish.css is missing\n\nCheck finished with warnings or errors!"
         formatted_message = ["FAILED!", "ERROR: book.epub: resource OEBPS/stylesheets/handbookish.css is missing"]
         ec = ProcessEpub.new
