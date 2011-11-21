@@ -31,7 +31,7 @@ end
 Now from the command line:
 
 ``` terminal
-$ bin/epub_validator /path/to/sample.epub
+$ epub_validator /path/to/sample.epub
 Checking....
 FAILED!
 ERROR: OPS/toc.ncx(21): 'OPS/': referenced resource exists, but not declared in the OPF file
