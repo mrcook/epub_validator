@@ -21,19 +21,21 @@ Sample usage and output:
 require 'epub_validator'
 
 ev = EpubValidator.check('/path/to/sample.epub')
-ev.message.each do |m|
+puts ev[:valid]
+ev[:message].each do |m|
   puts m
 end
-=> # FAILED!
-=> # ERROR: OPS/toc.ncx(21): 'OPS/': referenced resource exists, but not declared in the OPF file
+=> 0
+=> ERROR: OPS/toc.ncx(21): 'OPS/': referenced resource exists, but not declared in the OPF file
 ```
 
 Now from the command line:
 
 ``` terminal
 $ epub_validator /path/to/sample.epub
-Checking....
-FAILED!
+
+Checking....FAILED!
+
 ERROR: OPS/toc.ncx(21): 'OPS/': referenced resource exists, but not declared in the OPF file
 ```
 
@@ -44,6 +46,6 @@ Java must be installed and set in your PATH.
 
 ## Future Features
 
-* Accept a directory containing many .epub files for processing.
-* When using the command line, have option to write results to a log file
+* Command line: accept directory containing many .epub files for processing.
+* Command line: have switch for writing results to log file
 * Format "ERROR" and "WARNING" output for more intuitive instructions.
