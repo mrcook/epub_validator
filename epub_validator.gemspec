@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_development_dependency "rspec"
-  s.add_development_dependency "ZenTest"
-  s.add_development_dependency "autotest-growl"
+  s.add_development_dependency('rspec', '>= 2.8.0')
+  s.add_development_dependency('ZenTest', '>= 4.6.2')
+  s.add_development_dependency('autotest-growl', '>= 0.2.16')
 end
