@@ -1,7 +1,9 @@
 module EpubValidator
   class FormatMessage
     def process_message(message)
-      return ['Passed.'] if message.match('No errors or warnings detected')
+      status = Hash.new
+      status[:valid] = 1
+      return status if message.match('No errors or warnings detected')
 
       m_array = message.split(/\n/)
 
@@ -12,7 +14,9 @@ module EpubValidator
           s.match('^Check finished.*')
       end
 
-      m_array.unshift('FAILED!')
+      status[:valid] = 0
+      status[:message] = m_array
+      return status
     end
   end
 end
