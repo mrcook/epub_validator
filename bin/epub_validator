@@ -6,7 +6,7 @@ $LOAD_PATH.unshift(lib) if File.directory?(lib) && !$LOAD_PATH.include?(lib)
 require 'epub_validator'
 #require 'epub_validator/command'
 
-# Thanks heroku!
+# From heroku!
 args = ARGV.dup
 ARGV.clear
 command = args.shift.strip rescue 'help'
@@ -14,7 +14,12 @@ command = args.shift.strip rescue 'help'
 # need to implement Command class
 #EpubValidator::Command.run(command, args)
 
-puts "Checking...."
+print "\nChecking...."
 ev = EpubValidator.check(command)
-puts ev
+if (ev[:valid] == 1)
+  print "Passed.\n"
+else
+  print "FAILED!\n\n"
+  puts ev[:message]
+end
 
