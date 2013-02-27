@@ -8,12 +8,20 @@ args = ARGV.dup
 ARGV.clear
 command = args.shift.strip rescue 'help'
 
-print "\nChecking...."
-ev = EpubValidator.check(command)
-if (ev[:valid] == 1)
-  print "Passed.\n"
+puts "\nChecking...."
+validation = EpubValidator.check(command)
+
+puts
+puts "Detected as EPUB version #{validation.epub_version}"
+puts
+
+if validation.valid?
+  puts "...Passed.\n"
+  puts
+  puts validation.messages
 else
-  print "FAILED!\n\n"
-  puts ev[:message]
+  puts "FAILED!\n\n"
+  puts
+  puts validation.messages
 end
 
