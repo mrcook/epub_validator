@@ -2,25 +2,46 @@
 
 $LOAD_PATH << File.expand_path(File.dirname(__FILE__) + '/../lib')
 
+require 'optparse'
 require 'epub_validator'
 
-args = ARGV.dup
-ARGV.clear
-command = args.shift.strip rescue 'help'
+args = ARGV
 
-puts "\nChecking...."
-validation = EpubValidator.check(command)
+options = OptionParser.new do |opts|
+  opts.banner = "Usage: #{opts.program_name} [OPTIONS] /path/to/some.epub"
+  opts.separator ""
+  opts.separator "Common options:"
 
-puts
-puts "Detected as EPUB version #{validation.epub_version}" if validation.epub_version
-puts
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit
+  end
+  opts.on_tail("--version", "Show version") do
+    puts EpubValidator::VERSION
+    exit
+  end
+end
+
+args = ['-h'] if args.empty?
+options.parse!(args)
+
+filename = args.shift.strip
+unless filename
+  puts "You must provide an EPUB filename"
+  exit
+end
+
+print "\nChecking...."
+validation = EpubValidator.check(filename)
 
 if validation.valid?
-  puts "...Passed.\n"
+  puts "Congratulations! This is a valid EPUB #{validation.epub_version} ebook."
   puts
   puts validation.messages
 else
-  puts "FAILED!\n\n"
+  puts "FAILED!"
+  puts
+  puts "This is not a valid EPUB #{validation.epub_version} ebook."
   puts
   puts validation.messages
 end

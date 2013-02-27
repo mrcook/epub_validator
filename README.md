@@ -37,6 +37,8 @@ $ epub_validator /path/to/sample.epub
 
 Checking....FAILED!
 
+This is not a valid EPUB 3.0 ebook.
+
 ERROR: OPS/toc.ncx(21): 'OPS/': referenced resource exists, but not declared in the OPF file
 ```
 
