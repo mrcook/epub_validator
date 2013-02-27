@@ -12,7 +12,7 @@ puts "\nChecking...."
 validation = EpubValidator.check(command)
 
 puts
-puts "Detected as EPUB version #{validation.epub_version}"
+puts "Detected as EPUB version #{validation.epub_version}" if validation.epub_version
 puts
 
 if validation.valid?
