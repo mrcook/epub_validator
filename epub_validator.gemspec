@@ -1,28 +1,21 @@
 # -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-require 'epub_validator/version'
+require File.expand_path('../lib/epub_validator/version', __FILE__)
 
-Gem::Specification.new do |s|
-  s.platform    = Gem::Platform::RUBY
+Gem::Specification.new do |gem|
+  gem.name          = "epub_validator"
+  gem.version       = EpubValidator::VERSION
+  gem.authors       = ["Mike Cook"]
+  gem.email         = ["m@mikecook.co.uk"]
+  gem.summary       = %q{Check that your EPUB book is a valid IDPF document.}
+  gem.description   = %q{EPUB Validator lets you check that your EPUB 2 files are valid IDPF documents with the help of the epubcheck tool.}
 
-  s.name        = "epub_validator"
-  s.version     = EpubValidator::VERSION
-  s.summary     = %q{Check that your EPUB book is a valid IDPF document.}
-  s.description = %q{EPUB Validator lets you check that your EPUB 2 files are valid IDPF documents with the help of the epubcheck tool.}
+  gem.platform      = Gem::Platform::RUBY
+  gem.files         = `git ls-files`.split($\)
+  gem.require_paths = ['lib']
+  gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
 
-  s.authors     = ["Mike Cook"]
-  s.email       = ["m@mikecook.co.uk"]
-  s.homepage    = "https://github.com/mrcook/"
+  gem.required_ruby_version = '>= 1.9.3'
 
-  s.required_ruby_version     = ">= 1.9.2"
-  s.required_rubygems_version = ">= 1.3.6"
-
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
-
-  s.add_development_dependency('rspec', '>= 2.8.0')
-  s.add_development_dependency('ZenTest', '>= 4.6.2')
-  s.add_development_dependency('autotest-growl', '>= 0.2.16')
+  gem.add_development_dependency('rspec', '~> 2.13.0')
 end
