@@ -6,8 +6,8 @@ Gem::Specification.new do |gem|
   gem.version       = EpubValidator::VERSION
   gem.authors       = ["Mike Cook"]
   gem.email         = ["m@mikecook.co.uk"]
-  gem.summary       = %q{Check that your EPUB book is a valid IDPF document.}
-  gem.description   = %q{EPUB Validator lets you check that your EPUB files are valid IDPF documents with the help of the epubcheck tool.}
+  gem.summary       = %q{Ruby wrapper for epubcheck; a Java EPUB validation tool.}
+  gem.description   = %q{EPUB Validator is a Ruby wrapper for the Java epubcheck tool; validating EPUB files against the IDPF standard.}
 
   gem.platform      = Gem::Platform::RUBY
   gem.files         = `git ls-files`.split($\)
