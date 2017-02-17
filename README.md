@@ -1,4 +1,10 @@
-# epubValidator - Check if your EPUB eBooks are valid
+# [INACTIVE] epubValidator - Check if your EPUB eBooks are valid
+
+**IMPORTANT NOTICE - THIS GEM IS NO LONGER UNDER DEVELOPMENT**
+
+Later releases of epubCheck are much more friendly to use, which means the usefulness of this GEM has diminished and so is no longer maintained. I recommend you now use the official [epubCheck](https://github.com/idpf/epubcheck) tool.
+
+====
 
 This library will check that your .epub files are valid IDPF EPUB documents (version 2.x and 3.0) and return a successful or error message. It can be called as a Ruby library, or invoked from the command line.
 
