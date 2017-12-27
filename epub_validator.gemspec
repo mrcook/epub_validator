@@ -4,8 +4,9 @@ require File.expand_path('../lib/epub_validator/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.name          = "epub_validator"
   gem.version       = EpubValidator::VERSION
-  gem.authors       = ["Mike Cook"]
-  gem.email         = ["m@mikecook.co.uk"]
+  gem.authors       = ["Michael R. Cook"]
+  gem.email         = ["work@mrcook.uk"]
+  gem.licenses      = ['MIT']
   gem.summary       = %q{Ruby wrapper for epubcheck; a Java EPUB validation tool.}
   gem.description   = %q{EPUB Validator is a Ruby wrapper for the Java epubcheck tool; validating EPUB files against the IDPF standard.}
 

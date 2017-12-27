@@ -1,6 +1,6 @@
-# [INACTIVE] epubValidator - Check if your EPUB eBooks are valid
+# [INACTIVE] epubValidator
 
-**IMPORTANT NOTICE - THIS GEM IS NO LONGER UNDER DEVELOPMENT**
+Check if your EPUB eBooks are valid
 
 Later releases of epubCheck are much more friendly to use, which means the usefulness of this GEM has diminished and so is no longer maintained. I recommend you now use the official [epubCheck](https://github.com/idpf/epubcheck) tool.
 
